@@ -29,4 +29,13 @@
   Edit me!
 </div>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-<script src="index.js"></script>
+<script>
+  function activateStyle(style) {
+    jQuery('#editor').focus();
+    if (!document.queryCommandEnabled(style)) {
+      console.log('Style does not exist')
+      return;
+    }
+    document.execCommand(style, false, null);
+  }
+</script>
