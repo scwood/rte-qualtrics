@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+  #wrapper {
+    margin: 50px auto;
+    width: 400px;
+  }
+  #editor {
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+  }
+  #bold-button {
+    font-weight: 900;
+  }
+  #italic-button {
+    font-style: italic;
+    font-family: serif;
+  }
+  #underline-button {
+    text-decoration: underline;
+  }
+</style>
+<div id="wrapper">
+  <div class="btn-group" role="group" aria-label="...">
+    <button id="bold-button" type="button" class="btn btn-default" onClick="activateStyle('bold')">B</button>
+    <button id="italic-button" type="button" class="btn btn-default" onClick="activateStyle('italic')">I</button>
+    <button id="underline-button" type="button" class="btn btn-default" onClick="activateStyle('underline')">U</button>
+    <button id="" type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList')">Bullet</button>
+    <button id="" type="button" class="btn btn-default" onClick="activateStyle('createLink')">Link</button>
+  </div>
+  <br><br>
+  <div id="editor" contenteditable>
+    Edit me!
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="index.js"></script>
