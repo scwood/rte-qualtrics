@@ -18,7 +18,7 @@
     text-decoration: underline;
   }
 </style>
-<div class="btn-group" role="group" aria-label="...">
+<div class="btn-group" role="group">
   <button id="bold-button" type="button" class="btn btn-default" onClick="activateStyle('bold')">
     <i class="fa fa-bold"></i>
   </button>
@@ -36,9 +36,7 @@
   </button>
 </div>
 <br><br>
-<div id="editor" placeholder="asdfasdf" contenteditable>
-</div>
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<div id="editor" placeholder="asdfasdf" tabindex="0" contenteditable></div>
 <script>
   function activateStyle(style) {
     jQuery('#editor').focus();
