@@ -19,15 +19,24 @@
   }
 </style>
 <div class="btn-group" role="group" aria-label="...">
-  <button id="bold-button" type="button" class="btn btn-default" onClick="activateStyle('bold')">B</button>
-  <button id="italic-button" type="button" class="btn btn-default" onClick="activateStyle('italic')">I</button>
-  <button id="underline-button" type="button" class="btn btn-default" onClick="activateStyle('underline')">U</button>
-  <button id="" type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList')">Bullet</button>
-  <button id="" type="button" class="btn btn-default" onClick="activateStyle('createLink')">Link</button>
+  <button id="bold-button" type="button" class="btn btn-default" onClick="activateStyle('bold')">
+    <i class="fa fa-bold"></i>
+  </button>
+  <button id="italic-button" type="button" class="btn btn-default" onClick="activateStyle('italic')">
+    <i class="fa fa-italic"></i>
+  </button>
+  <button id="underline-button" type="button" class="btn btn-default" onClick="activateStyle('underline')">
+    <i class="fa fa-underline"></i>
+  </button>
+  <button id="" type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList')">
+    <i class="fa fa-list-ul"></i>
+  </button>
+  <button id="" type="button" class="btn btn-default" onClick="activateStyle('createLink')">
+    <i class="fa fa-link"></i>
+  </button>
 </div>
 <br><br>
-<div id="editor" contenteditable>
-  Edit me!
+<div id="editor" placeholder="asdfasdf" contenteditable>
 </div>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script>
