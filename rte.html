@@ -30,7 +30,7 @@
   <div class="rte-input" contenteditable></div>
 </div>
 <script>
-  jQuery('.rte').keyup(function (e) {
+  jQuery('.rte-input').keyup(function (e) {
     if (e.keyCode === Event.KEY_RETURN) {
       e.stopPropagation();
       document.execCommand('insertText', false, '\n');
