@@ -1,54 +1,46 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-  .editor {
+  .rte-input {
     color: #555;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 6px 12px;
   }
-  .bold-button {
-    font-weight: 900;
-  }
-  .italic-button {
-    font-style: italic;
-    font-family: serif;
-  }
-  .underline-button {
-    text-decoration: underline;
-  }
 </style>
-<div class="btn-group" role="group">
-  <button id="bold-button" type="button" class="btn btn-default" onClick="activateStyle('bold')">
-    <i class="fa fa-bold"></i>
-  </button>
-  <button id="italic-button" type="button" class="btn btn-default" onClick="activateStyle('italic')">
-    <i class="fa fa-italic"></i>
-  </button>
-  <button id="underline-button" type="button" class="btn btn-default" onClick="activateStyle('underline')">
-    <i class="fa fa-underline"></i>
-  </button>
-  <button id="" type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList')">
-    <i class="fa fa-list-ul"></i>
-  </button>
-  <button id="" type="button" class="btn btn-default" onClick="activateStyle('createLink')">
-    <i class="fa fa-link"></i>
-  </button>
+<div class="rte">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default" onClick="activateStyle('bold', this)">
+      <i class="fa fa-bold"></i>
+    </button>
+    <button id="italic-button" type="button" class="btn btn-default" onClick="activateStyle('italic', this)">
+      <i class="fa fa-italic"></i>
+    </button>
+    <button type="button" class="btn btn-default" onClick="activateStyle('underline', this)">
+      <i class="fa fa-underline"></i>
+    </button>
+    <button type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList', this)">
+      <i class="fa fa-list-ul"></i>
+    </button>
+    <button type="button" class="btn btn-default" onClick="activateStyle('createLink', this)">
+      <i class="fa fa-link"></i>
+    </button>
+  </div>
+  <br><br>
+  <div class="rte-input" contenteditable></div>
 </div>
-<br><br>
-<div id="editor" contenteditable></div>
 <script>
-  jQuery('.editor').keyup(function (e) {
+  jQuery('.rte').keyup(function (e) {
     if (e.keyCode === Event.KEY_RETURN) {
       e.stopPropagation();
       document.execCommand('insertText', false, '\n');
     }
-  })
-  function activateStyle(style) {
+  });
 
-    jQuery('#editor').focus();
+  function activateStyle(style, element) {
+    var input = jQuery(element).closest('.rte').find('.rte-input');
+    input.focus();
     if (!document.queryCommandEnabled(style)) {
-      console.log('Style does not exist')
       return;
     }
     document.execCommand(style, false, null);
