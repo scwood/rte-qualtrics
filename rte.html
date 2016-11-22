@@ -4,6 +4,7 @@
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
   crossorigin="anonymous">
+
 <style>
   .rte-input {
     color: #555;
@@ -28,7 +29,7 @@
     <button type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList', this)">
       <i class="fa fa-list-ul"></i>
     </button>
-    <button type="button" data-toggle="popover" class="link-button btn btn-default">
+    <button type="button" class="link-button btn btn-default">
       <i class="fa fa-link"></i>
     </button>
   </div>
@@ -36,27 +37,26 @@
   <div class="rte-input" contenteditable></div>
 </div>
 
-<!-- <script -->
-<!--   src="https://code.jquery.com/jquery-3.1.1.min.js" -->
-<!--   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" -->
-<!--   crossorigin="anonymous"></script> -->
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
 
 <script>
-  jQuery(document).ready(function () {
 
-    jQuery('[data-toggle="popover"]').popover(); 
-
-    jQuery('.rte-input').keyup(function (e) {
-      if (e.keyCode === Event.KEY_RETURN) {
-        e.stopPropagation();
-        document.execCommand('insertText', false, '\n');
-      }
+  setTimeout(function () {
+    $('.link-button').popover({
+      placement: 'auto bottom',
+      content: 'hi',
+      title: 'hi',
     });
+  }, 100)
 
+  jQuery('.rte-input').keyup(function (e) {
+    if (e.keyCode === Event.KEY_RETURN) {
+      e.stopPropagation();
+      document.execCommand('insertText', false, '\n');
+    }
   });
 
   function activateStyle(style, element) {
