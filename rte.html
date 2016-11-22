@@ -1,5 +1,9 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous">
 <style>
   .rte-input {
     color: #555;
@@ -8,12 +12,13 @@
     padding: 6px 12px;
   }
 </style>
+
 <div class="rte">
-  <div class="btn-group" role="group">
+  <div class="btn-group">
     <button type="button" class="btn btn-default" onClick="activateStyle('bold', this)">
       <i class="fa fa-bold"></i>
     </button>
-    <button id="italic-button" type="button" class="btn btn-default" onClick="activateStyle('italic', this)">
+    <button type="button" class="btn btn-default" onClick="activateStyle('italic', this)">
       <i class="fa fa-italic"></i>
     </button>
     <button type="button" class="btn btn-default" onClick="activateStyle('underline', this)">
@@ -22,19 +27,35 @@
     <button type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList', this)">
       <i class="fa fa-list-ul"></i>
     </button>
-    <button type="button" class="btn btn-default" onClick="activateStyle('createLink', this)">
+    <button type="button" class="link-button btn btn-default">
       <i class="fa fa-link"></i>
     </button>
   </div>
   <br><br>
   <div class="rte-input" contenteditable></div>
 </div>
+
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+
 <script>
-  jQuery('.rte-input').keyup(function (e) {
-    if (e.keyCode === Event.KEY_RETURN) {
-      e.stopPropagation();
-      document.execCommand('insertText', false, '\n');
-    }
+  jQuery(document).ready(function () {
+
+    jQuery('.rte-input').keyup(function (e) {
+      if (e.keyCode === Event.KEY_RETURN) {
+        e.stopPropagation();
+        document.execCommand('insertText', false, '\n');
+      }
+    });
+
+    jQuery('.link-button').popover({
+      placement: 'auto bottom',
+      title: 'Insert Link',
+      content: 'test asdfalsdkjflasdjflas lasdkjf lasdk',
+    });
+
   });
 
   function activateStyle(style, element) {
@@ -45,4 +66,5 @@
     }
     document.execCommand(style, false, null);
   }
+
 </script>
