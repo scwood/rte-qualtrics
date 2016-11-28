@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -11,11 +13,11 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 6px 12px;
+    height: 75px;
   }
 </style>
 
 <div class="rte">
-  asdf
   <div class="btn-group">
     <button type="button" class="btn btn-default" onClick="activateStyle('bold', this)">
       <i class="fa fa-bold"></i>
@@ -40,7 +42,8 @@
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
 
 <script>
 
@@ -50,7 +53,7 @@
       content: 'hi',
       title: 'hi',
     });
-  }, 100)
+  }, 1000)
 
   jQuery('.rte-input').keyup(function (e) {
     if (e.keyCode === Event.KEY_RETURN) {
