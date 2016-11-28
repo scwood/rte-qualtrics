@@ -15,25 +15,25 @@
     padding: 6px 12px;
     min-height: 75px;
   }
+  .force-parent-lh {
+    line-height: inherit !important;
+  }
 </style>
 
 <div class="rte">
   <div class="btn-group">
     <button type="button" class="btn btn-default" onClick="activateStyle('bold', this)">
-      <i class="fa fa-bold"></i>
+      <i class="fa fa-bold force-parent-lh"></i>
     </button>
     <button type="button" class="btn btn-default" onClick="activateStyle('italic', this)">
-      <i class="fa fa-italic"></i>
+      <i class="fa fa-italic force-parent-lh"></i>
     </button>
     <button type="button" class="btn btn-default" onClick="activateStyle('underline', this)">
-      <i class="fa fa-underline"></i>
+      <i class="fa fa-underline force-parent-lh"></i>
     </button>
     <button type="button" class="btn btn-default" onClick="activateStyle('insertUnorderedList', this)">
-      <i class="fa fa-list-ul"></i>
+      <i class="fa fa-list-ul force-parent-lh"></i>
     </button>
-    <a tabindex="0" class="link-button btn btn-default" data-trigger="focus" title="dismissible popover" data-content="and here's some content">
-      <i class="fa fa-link"></i>
-    </a>
   </div>
   <br><br>
   <div class="rte-input" contenteditable></div>
@@ -46,14 +46,6 @@
 </script>
 
 <script>
-
-  setTimeout(function () {
-    jQuery('.link-button').popover({
-      placement: 'auto bottom',
-      content: 'hi',
-      title: 'hi',
-    });
-  }, 1000)
 
   jQuery('.rte-input').keyup(function (e) {
     if (e.keyCode === Event.KEY_RETURN) {
