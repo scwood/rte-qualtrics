@@ -29,7 +29,7 @@
     border-bottom-right-radius: 0px;
   }
 
-  @media(max-width:767px){
+  @media(max-width:480px){
     .link-group {
       margin-top: 5px;
     }
@@ -93,14 +93,14 @@
   }
 
   function createLink(element) {
+    var url = jQuery(element).closest('.rte').find('input');
     var rte = jQuery(element).closest('.rte').find('.rte-input');
     rte.focus();
-    var input = jQuery(element).prev('input');
-    if (input.val() === '') {
+    if (url.val() === '') {
       return;
     }
-    document.execCommand('createLink', null, input.val());
-    input.val('');
+    document.execCommand('createLink', null, url.val());
+    url.val('');
   }
 
 </script>
