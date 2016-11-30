@@ -9,16 +9,24 @@
 
 <style>
 
-  .rte-input {
+  .form-control-style {
     color: #555;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 6px 12px;
+  }
+
+  .rte-input {
     min-height: 75px;
   }
 
   .force-parent-lh {
     line-height: inherit !important;
+  }
+
+  .link-input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 
   @media(max-width:767px){
@@ -47,15 +55,15 @@
     </div>
     <div class="btn-group link-group">
       <div class="input-group" style="max-width: 225px">
-        <input type="text" class="form-control" placeholder="http://...">
-        <span class="input-group-btn" onclick="createLink(this)">
-          <button class="btn btn-default">Create link</button>
+        <input type="text" class="form-control-style link-input" placeholder="http://...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" onclick="createLink(this)">Create link</button>
         </span>
       </div>
     </div>
   </div>
   <br>
-  <div class="rte-input" contenteditable></div>
+  <div class="form-control-style rte-input" contenteditable></div>
 </div>
 
 <script
@@ -66,7 +74,7 @@
 
 <script>
 
-  $(document).ready(function () {
+  jQuery(document).ready(function () {
     jQuery('.rte-input').keyup(function (e) {
       if (e.keyCode === Event.KEY_RETURN) {
         e.stopPropagation();
