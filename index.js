@@ -1,11 +1,9 @@
 var express = require('express');
 var htmlDocx = require('html-docx-js');
-var fs = require('fs');
 
 var app = express();
 
 app.use(express.static('public'))
-
 app.get('/comments', function (req, res, next) {
 
   // TODO
@@ -24,7 +22,6 @@ app.get('/comments', function (req, res, next) {
 });
 
 var port = process.env.PORT || 3000;
-
 app.listen(port, function () {
   console.log('Listening on port ' + port);
 });
