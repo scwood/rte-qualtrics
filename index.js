@@ -7,12 +7,13 @@ app.use(express.static('public'))
 app.get('/comments', function (req, res, next) {
 
   // TODO
-  // Get comments for specific person with response engine
-  // For now just using the testContent variable
+  // Get comments for specific person with response engine. For now it just
+  // uses the testContent variable which was generated using the RTE custom
+  // question
 
-  var testContent = '<b>This is bold</b><div><b><br></b></div><div><b><u>' +
-    'Bold AND underline</u></b></div><div><b><u><br></u></b></div><div>' +
-    '<ul><li>A list of stuff</li><li>More stuff</li></ul>';
+  var testContent = '<b>This is bold.</b><div><b><u>This is bold AND underlined' +
+    '</u></b></div><div><ul><li>A list of stuff</li><li>More stuff</li></ul>' +
+    '<div><a href="http://google.com">A link to google.com.</a></div></div>';
   var docx = htmlDocx.asBlob(testContent);
   res.header(
     'Content-type',
