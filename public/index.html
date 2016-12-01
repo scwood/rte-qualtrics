@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
   <head>
   </head>
@@ -5,8 +6,10 @@
     <div id="question-body"></div>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script>
-      $.ajax({
-        url: 'rte.html?v=1',
+      // Below is how this was get used in the qualtrics platform (with the
+      // appropriate link to rte.html)
+      jQuery.ajax({
+        url: 'rte.html',
         success: function (data) {
           jQuery('#question-body').append(data);
         }});
