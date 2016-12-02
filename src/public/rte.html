@@ -8,37 +8,35 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
 
 <style>
 
 .rte-input {
-  min-height: 75px;
+	min-height: 75px;
 }
 
 @media(max-width:480px){
-  .link-group {
-    margin-top: 5px;
-  }
+	.link-group {
+	margin-top: 5px;
+	}
 }
 
-/* Styles on inputs are very specific in Qualtrics, have to use !important
-   to get new rules to to apply */
+/* Styles on inputs are very specific in Qualtrics, have to use !important to get new rules to to apply */
 
 .force-parent-lh {
-  line-height: inherit !important;
+	line-height: inherit !important;
 }
 
 .form-control-style {
-  color: #555 !important;
-  border: 1px solid #ccc !important;
-  border-radius: 4px !important;
-  padding: 6px 12px !important;
+	color: #555 !important;
+	border: 1px solid #ccc !important;
+	border-radius: 4px !important;
+	padding: 6px 12px !important;
 }
 
 .link-input {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
 }
 
 </style>
@@ -79,63 +77,67 @@
 </script>
 <script>
 
-var answerId = null;
+	var answerId = null;
 
-window.connectEditor = function (_answerId) {
-  answerId = _answerId.replace(/~/g, '\\~');
-  jQuery(answerId).hide();
-}
+	window.connectEditor = function (_answerId) {
+		answerId = _answerId.replace(/~/g, '\\~');
+		jQuery(answerId).hide();
+	}
 
-jQuery(document).ready(function () {
+	jQuery(document).ready(function () {
 
-  function activateStyle(style, element) {
-    var rte = jQuery(element).closest('.rte').find('.rte-input');
-    rte.focus();
-    if (!document.queryCommandEnabled(style)) {
-      return;
-    }
-    document.execCommand(style, false, null);
-  }
+		function activateStyle(style, element) {
+			var rte = jQuery(element).closest('.rte').find('.rte-input');
+			rte.focus();
+			if (!document.queryCommandEnabled(style)) {
+				return;
+			}
+			document.execCommand(style, false, null);
+		}
 
-  function createLink(element) {
-    var url = jQuery(element).closest('.rte').find('input');
-    var rte = jQuery(element).closest('.rte').find('.rte-input');
-    rte.focus();
-    if (url.val() === '') {
-      return;
-    }
-    document.execCommand('createLink', null, url.val());
-    url.val('');
-  }
+		function createLink(element) {
+			var url = jQuery(element).closest('.rte').find('input');
+			var rte = jQuery(element).closest('.rte').find('.rte-input');
+			rte.focus();
+			if (url.val() === '') {
+				return;
+		}
+		document.execCommand('createLink', null, url.val());
+			url.val('');
+		}
 
-  jQuery('.rte-input').keyup(function (e) {
-    if (e.keyCode === Event.KEY_RETURN) {
-      e.stopPropagation();
-      document.execCommand('insertText', false, '\n');
-    }
-  });
+		jQuery('.rte-input').keyup(function (e) {
+			if (e.keyCode === Event.KEY_RETURN) {
+				e.stopPropagation();
+				document.execCommand('insertText', false, '\n');
+			}
+		});
 
-  jQuery('.bold-button').on('click', function () {
-    activateStyle('bold', this);
-  });
+		jQuery('.bold-button').on('click', function () {
+			activateStyle('bold', this);
+		});
 
-  jQuery('.italic-button').on('click', function () {
-    activateStyle('italic', this);
-  });
+		jQuery('.italic-button').on('click', function () {
+			activateStyle('italic', this);
+		});
 
-  jQuery('.underline-button').on('click', function () {
-    activateStyle('underline', this);
-  });
+		jQuery('.underline-button').on('click', function () {
+			activateStyle('underline', this);
+		});
 
-  jQuery('.list-button').on('click', function () {
-    activateStyle('insertUnorderedList', this);
-  });
+		jQuery('.list-button').on('click', function () {
+			activateStyle('insertUnorderedList', this);
+		});
 
-  jQuery('.link-button').on('click', function (e) {
-		e.stopPropagation();
-    createLink(this);
-  });
+		jQuery('.link-button').on('click', function (e) {
+			e.stopPropagation();
+			createLink(this);
+		});
 
-});
+		jQuery('.rte-input').on('blur', function () {
+			jQuery(answerId).val(jQuery('.rte-input').html());
+		});
+
+	});
 
 </script>
