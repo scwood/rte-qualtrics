@@ -61,7 +61,7 @@
 			<div class="input-group" style="max-width: 225px">
 				<input type="text" class="form-control-style link-input" placeholder="http://...">
 				<span class="input-group-btn">
-					<button class="btn btn-default link-button">Create link</button>
+					<button type="button" class="btn btn-default link-button" nosubmit>Create link</button>
 				</span>
 			</div>
 		</div>
@@ -101,8 +101,8 @@
 			rte.focus();
 			if (url.val() === '') {
 				return;
-		}
-		document.execCommand('createLink', null, url.val());
+			}
+			document.execCommand('createLink', null, url.val());
 			url.val('');
 		}
 
@@ -130,7 +130,6 @@
 		});
 
 		jQuery('.link-button').on('click', function (e) {
-			e.stopPropagation();
 			createLink(this);
 		});
 
