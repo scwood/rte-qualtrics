@@ -3,8 +3,19 @@
 	<head>
 	</head>
 	<body style="padding:25px">
-		<div id="question-body"></div>
-		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<div id="question-body">
+			<input id="QR~QID1"></input>
+		</div>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous">
+		</script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.min.js"
+			integrity="sha256-+3xgqfaj59RidkNCsaBCFrqFtEkU8Q57AoVtOOTYMBs="
+			crossorigin="anonymous">
+		</script>
 		<script>
 			// Below is how this is used in the qualtrics platform (with the
 			// appropriate link to rte.html)
@@ -12,7 +23,8 @@
 				url: 'rte.html',
 				success: function (data) {
 					jQuery('#question-body').append(data);
+					connectEditor('#QR~QID1');
 				}});
 		</script>
-</body>
+	</body>
 </html>

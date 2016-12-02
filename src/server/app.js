@@ -9,7 +9,7 @@ var config = qsystem.getConfig();
 
 var app = express();
 
-app.use(config.basepath,express.static(path.join(__dirname, '../client')));
+app.use(config.basepath, express.static(path.join(__dirname, '../public')));
 
 app.get(config.basepath + 'healthcheck',function(req,res){
 	res.json({status:"ok"})

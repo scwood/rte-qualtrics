@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon src/server/bin/run.js",
     "start": "forever -m 5 src/server/bin/run.js",
     "test": "istanbul cover _mocha -- --colors --recursive src/test"
   },

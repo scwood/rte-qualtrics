@@ -1,58 +1,28 @@
 <link
 	rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
 <link
 	rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
-
-<style>
-
-	.rte-input {
-		min-height: 75px;
-	}
-
-	@media(max-width:480px){
-		.link-group {
-			margin-top: 5px;
-		}
-	}
-
-	/* Styles on inputs are very specific in Qualtrics, have to use !important
-		 to get new rules to to apply */
-
-	.force-parent-lh {
-		line-height: inherit !important;
-	}
-
-	.form-control-style {
-		color: #555 !important;
-		border: 1px solid #ccc !important;
-		border-radius: 4px !important;
-		padding: 6px 12px !important;
-	}
-
-	.link-input {
-		border-top-right-radius: 0px !important;
-		border-bottom-right-radius: 0px !important;
-	}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 <div class="rte">
 	<div class="btn-toolbar">
 		<div class="btn-group">
-			<button type="button" class="btn btn-default" onclick="activateStyle('bold', this)">
+			<button type="button" class="btn btn-default bold-button">
 				<i class="fa fa-bold force-parent-lh"></i>
 			</button>
-			<button type="button" class="btn btn-default" onclick="activateStyle('italic', this)">
+			<button type="button" class="btn btn-default italic-button">
 				<i class="fa fa-italic force-parent-lh"></i>
 			</button>
-			<button type="button" class="btn btn-default" onclick="activateStyle('underline', this)">
+			<button type="button" class="btn btn-default underline-button">
 				<i class="fa fa-underline force-parent-lh"></i>
 			</button>
-			<button type="button" class="btn btn-default" onclick="activateStyle('insertUnorderedList', this)">
+			<button type="button" class="btn btn-default list-button">
 				<i class="fa fa-list-ul force-parent-lh"></i>
 			</button>
 		</div>
@@ -60,7 +30,7 @@
 			<div class="input-group" style="max-width: 225px">
 				<input type="text" class="form-control-style link-input" placeholder="http://...">
 				<span class="input-group-btn">
-					<button class="btn btn-default" onclick="createLink(this)">Create link</button>
+					<button class="btn btn-default link-button">Create link</button>
 				</span>
 			</div>
 		</div>
@@ -74,40 +44,4 @@
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous">
 </script>
-
-<script>
-
-	// FIXME
-	// Need to figure out how to assign the value of the comment to the qualtrics
-	// question they're answering.
-
-	jQuery(document).ready(function () {
-		jQuery('.rte-input').keyup(function (e) {
-			if (e.keyCode === Event.KEY_RETURN) {
-				e.stopPropagation();
-				document.execCommand('insertText', false, '\n');
-			}
-		});
-	});
-
-	function activateStyle(style, element) {
-		var rte = jQuery(element).closest('.rte').find('.rte-input');
-		rte.focus();
-		if (!document.queryCommandEnabled(style)) {
-			return;
-		}
-		document.execCommand(style, false, null);
-	}
-
-	function createLink(element) {
-		var url = jQuery(element).closest('.rte').find('input');
-		var rte = jQuery(element).closest('.rte').find('.rte-input');
-		rte.focus();
-		if (url.val() === '') {
-			return;
-		}
-		document.execCommand('createLink', null, url.val());
-		url.val('');
-	}
-
-</script>
+<script src="script.js"></script>
