@@ -131,7 +131,8 @@ jQuery(document).ready(function () {
     activateStyle('insertUnorderedList', this);
   });
 
-  jQuery('.link-button').on('click', function () {
+  jQuery('.link-button').on('click', function (e) {
+		e.stopPropagation();
     createLink(this);
   });
 
