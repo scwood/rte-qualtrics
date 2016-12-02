@@ -1,8 +1,8 @@
-var qualtricsId = null;
+var answerId = null;
 
-window.connectEditor = function (_qualtricsId) {
-  qualtricsId = _qualtricsId.replace(/~/g, '\\~');
-  jQuery(qualtricsId).hide();
+window.connectEditor = function (_answerId) {
+  answerId = _answerId.replace(/~/g, '\\~');
+  jQuery(answerId).hide();
 }
 
 jQuery(document).ready(function () {
@@ -35,23 +35,23 @@ jQuery(document).ready(function () {
   });
 
   jQuery('.bold-button').on('click', function () {
-    activateStyle('bold', this)
+    activateStyle('bold', this);
   });
 
   jQuery('.italic-button').on('click', function () {
-    activateStyle('italic', this)
+    activateStyle('italic', this);
   });
 
   jQuery('.underline-button').on('click', function () {
-    activateStyle('underline', this)
+    activateStyle('underline', this);
   });
 
   jQuery('.list-button').on('click', function () {
-    activateStyle('insertUnorderedList', this)
+    activateStyle('insertUnorderedList', this);
   });
 
   jQuery('.link-button').on('click', function () {
-    activateStyle()
+    createLink(this);
   });
 
 });
