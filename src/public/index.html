@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body style="padding:25px">
+		<div id="question-body"></div>
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script>
+			// Below is how this is used in the qualtrics platform (with the
+			// appropriate link to rte.html)
+			jQuery.ajax({
+				url: 'rte.html',
+				success: function (data) {
+					jQuery('#question-body').append(data);
+				}});
+		</script>
+</body>
+</html>

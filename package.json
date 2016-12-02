@@ -1,12 +1,19 @@
 {
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "forever index.js"
+    "start": "forever -m 5 src/server/bin/run.js",
+    "test": "istanbul cover _mocha -- --colors --recursive src/test"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "express": "^4.14.0",
     "forever": "^0.15.3",
-    "html-docx-js": "^0.3.1"
+    "html-docx-js": "^0.3.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "qsystem": "^0.2.7",
+    "sinon": "^1.17.6",
+    "supertest": "^2.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
